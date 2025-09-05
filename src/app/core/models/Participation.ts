@@ -9,10 +9,22 @@ example of participation:
     athleteCount: 372
 }
 */
-export interface Participation {
-  id: number;
-  year: number;
-  city: string;
-  medalsCount: number;
-  athleteCount: number;
+export class Participation {
+  constructor(
+    public id: number,
+    public year: number,
+    public city: string,
+    public medalsCount: number,
+    public athleteCount: number
+  ) {}
+
+  static fromJson(json: any): Participation {
+    return new Participation(
+      json.id,
+      json.year,
+      json.city,
+      json.medalsCount,
+      json.athleteCount
+    );
+  }
 }

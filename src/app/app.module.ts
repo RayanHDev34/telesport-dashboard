@@ -6,9 +6,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
+// 👉 import du module
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'), // ← charge ECharts dynamiquement
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

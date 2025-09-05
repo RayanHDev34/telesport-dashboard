@@ -10,8 +10,17 @@ example of an olympic country:
     participations: []
 }
 */
-export interface OlympicCountry {
-  id: number;
-  country: string;
-  participations: Participation[];
+export class OlympicCountry {
+  constructor(
+    public id: number,
+    public country: string,
+    public participations: Participation[]
+  ) {}
+ static fromJson(json: any): OlympicCountry {
+    return new OlympicCountry(
+      json.id,
+      json.country,
+      json.participations.map((p: any) => Participation.fromJson(p))
+    );
+  }
 }
