@@ -1,0 +1,26 @@
+.stat-card {
+  border: 2px solid #1a9a9a;      /* contour teal */
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 160px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+
+  .title {
+    color: #6b6f76;               /* gris doux */
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .value {
+    font-weight: 800;
+    font-size: 20px;
+    color: #000;
+    line-height: 1;
+  }
+  .subtitle {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #8a8f96;
+  }
+}

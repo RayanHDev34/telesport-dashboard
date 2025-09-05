@@ -1,8 +1,23 @@
-<!-- home.component.html -->
 <div *ngIf="olympics$ | async as countries">
   <ng-container *ngIf="countries !== null; else error">
     <ng-container *ngIf="countries; else loading">
+
+      <!-- Row des stat cards -->
+      <div class="stats-row">
+        <app-stat-card
+          title="Number of JOs"
+          [value]="(totalJOs$ | async) ?? '—'">
+        </app-stat-card>
+
+        <app-stat-card
+          title="Number of countries"
+          [value]="(totalCountries$ | async) ?? '—'">
+        </app-stat-card>
+      </div>
+
+      <!-- Camembert -->
       <app-medals-pie-chart [countries]="countries"></app-medals-pie-chart>
+
     </ng-container>
   </ng-container>
 </div>

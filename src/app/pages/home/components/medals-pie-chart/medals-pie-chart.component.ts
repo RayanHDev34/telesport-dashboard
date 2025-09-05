@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
-import { ChartBuilderService } from '../core/services/chart-builder.service';
+import { ChartBuilderService } from 'src/app/core/services/chart-builder.service';
 
 @Component({
   selector: 'app-medals-pie-chart',
