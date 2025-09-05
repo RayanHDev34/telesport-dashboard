@@ -1,7 +1,9 @@
 <div *ngIf="olympics$ | async as countries">
   <ng-container *ngIf="countries !== null; else error">
     <ng-container *ngIf="countries; else loading">
-
+      <div class="section-title">
+        Medals per Country
+      </div>
       <!-- Row des stat cards -->
       <div class="stats-row">
         <app-stat-card

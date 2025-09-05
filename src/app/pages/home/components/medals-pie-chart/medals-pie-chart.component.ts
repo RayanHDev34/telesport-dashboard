@@ -25,7 +25,6 @@ export class MedalsPieChartComponent implements OnChanges {
     if ('countries' in changes || 'title' in changes || 'showLegend' in changes) {
       this.options = this.charts.buildMedalsPieOptions(this.countries);
       if (this.options) {
-        this.options.title = { text: this.title, left: 'center' };
         if (!this.showLegend) {
           this.options.legend = undefined;
         }

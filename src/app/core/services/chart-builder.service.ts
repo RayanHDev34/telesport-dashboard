@@ -15,7 +15,6 @@ export class ChartBuilderService {
   /** Construit les options ECharts pour afficher un donut avec labels dehors */
   buildMedalsPieOptions(countries: OlympicCountry[]) {
     return {
-      title: { text: 'Medals per Country', left: 'center' },
       tooltip: {
         trigger: 'item',
         formatter: (p: any) => `${p.name}<br/>${p.value} medals`,
