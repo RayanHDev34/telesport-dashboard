@@ -23,4 +23,7 @@ export class OlympicCountry {
       json.participations.map((p: any) => Participation.fromJson(p))
     );
   }
+   getTotalMedals(): number {
+    return this.participations.reduce((sum, p) => sum + p.medalsCount, 0);
+  }
 }

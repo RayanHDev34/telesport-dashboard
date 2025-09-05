@@ -1,3 +1,11 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<!-- home.component.html -->
+<div *ngIf="olympics$ | async as countries">
+  <ng-container *ngIf="countries !== null; else error">
+    <ng-container *ngIf="countries; else loading">
+      <app-medals-pie-chart [countries]="countries"></app-medals-pie-chart>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #loading><p>Chargement…</p></ng-template>
+<ng-template #error><p>❌ Erreur lors du chargement.</p></ng-template>
