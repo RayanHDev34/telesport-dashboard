@@ -16,18 +16,19 @@ import { MedalsPieChartComponent } from './components/medals-pie-chart/medals-pi
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  olympics$: Observable<OlympicCountry[] | null | undefined> = of(undefined);
+export class HomeComponent  {
+olympics$ = this.olympicApiService.getOlympics();
 
-  totalCountries$!: Observable<number | null>;
-  totalJOs$!: Observable<number | null>;
+  constructor(
+    private olympicApiService: OlympicApiService,
+    private statsService: OlympicStatsService
+  ) {}
 
-  constructor(private olympicApiService: OlympicApiService, private statsService: OlympicStatsService) {}
+  getTotalCountries(countries: OlympicCountry[] | null | undefined) {
+    return this.statsService.getTotalCountries(countries);
+  }
 
-  ngOnInit(): void {
-    this.olympics$ = this.olympicApiService.getOlympics();
-
-   this.totalCountries$ = this.statsService.getTotalCountries(this.olympics$);
-   this.totalJOs$ = this.statsService.getTotalJOs(this.olympics$);
+  getTotalJOs(countries: OlympicCountry[] | null | undefined) {
+    return this.statsService.getTotalJOs(countries);
   }
 }

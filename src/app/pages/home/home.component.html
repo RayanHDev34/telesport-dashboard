@@ -1,28 +1,28 @@
-<div *ngIf="olympics$ | async as countries">
-  <ng-container *ngIf="countries !== null; else error">
-    <ng-container *ngIf="countries; else loading">
-      <div class="section-title">
-        Medals per Country
-      </div>
-      <!-- Row des stat cards -->
-      <div class="stats-row">
-        <app-stat-card
-          title="Number of JOs"
-          [value]="(totalJOs$ | async) ?? '—'">
-        </app-stat-card>
+<ng-container *ngIf="olympics$ | async as state">
 
-        <app-stat-card
-          title="Number of countries"
-          [value]="(totalCountries$ | async) ?? '—'">
-        </app-stat-card>
-      </div>
+  <!-- Loading -->
+  <p *ngIf="state.status === 'loading'">⏳ Chargement…</p>
 
-      <!-- Camembert -->
-      <app-medals-pie-chart [countries]="countries"></app-medals-pie-chart>
+  <!-- Error -->
+  <p *ngIf="state.status === 'error'">❌ Erreur lors du chargement.</p>
 
-    </ng-container>
+  <!-- Success -->
+  <ng-container *ngIf="state.status === 'success'">
+    <div class="section-title">Medals per Country</div>
+
+    <div class="stats-row">
+      <app-stat-card
+        title="Number of JOs"
+        [value]="getTotalJOs(state.data) ?? '—'">
+      </app-stat-card>
+
+      <app-stat-card
+        title="Number of countries"
+        [value]="getTotalCountries(state.data) ?? '—'">
+      </app-stat-card>
+    </div>
+
+    <app-medals-pie-chart [countries]="state.data"></app-medals-pie-chart>
   </ng-container>
-</div>
 
-<ng-template #loading><p>Chargement…</p></ng-template>
-<ng-template #error><p>❌ Erreur lors du chargement.</p></ng-template>
+</ng-container>
