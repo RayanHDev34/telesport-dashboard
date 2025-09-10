@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
-import { OlympicService } from 'src/app/core/services/olympic.service';
+
+import { OlympicApiService } from 'src/app/core/services/olympic-api.service';
+import { OlympicStatsService } from 'src/app/core/services/olympic-stats.service';
+
 import { StatCardComponent } from './components/stat-card/stat-card.component';
 import { MedalsPieChartComponent } from './components/medals-pie-chart/medals-pie-chart.component';
 
@@ -20,22 +22,12 @@ export class HomeComponent implements OnInit {
   totalCountries$!: Observable<number | null>;
   totalJOs$!: Observable<number | null>;
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicApiService: OlympicApiService, private statsService: OlympicStatsService) {}
 
   ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
+    this.olympics$ = this.olympicApiService.getOlympics();
 
-    this.totalCountries$ = this.olympics$.pipe(
-      map(data => Array.isArray(data) ? data.length : (data === null ? null : null))
-    );
-
-    this.totalJOs$ = this.olympics$.pipe(
-      map(data => {
-        if (!Array.isArray(data)) return data === null ? null : null;
-        const years = new Set<number>();
-        data.forEach(c => c.participations.forEach(p => years.add(p.year)));
-        return years.size;
-      })
-    );
+   this.totalCountries$ = this.statsService.getTotalCountries(this.olympics$);
+   this.totalJOs$ = this.statsService.getTotalJOs(this.olympics$);
   }
 }

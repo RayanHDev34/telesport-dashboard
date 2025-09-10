@@ -14,7 +14,6 @@ import { ChartBuilderService } from 'src/app/core/services/chart-builder.service
 })
 export class MedalsPieChartComponent implements OnChanges {
   @Input() countries: OlympicCountry[] = [];
-  @Input() title = 'Medals per Country';
   @Input() showLegend = false;
 
   options: any | null = null;
@@ -22,7 +21,7 @@ export class MedalsPieChartComponent implements OnChanges {
   constructor(private charts: ChartBuilderService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ('countries' in changes || 'title' in changes || 'showLegend' in changes) {
+    if ('countries' in changes || 'showLegend' in changes) {
       this.options = this.charts.buildMedalsPieOptions(this.countries);
       if (this.options) {
         if (!this.showLegend) {

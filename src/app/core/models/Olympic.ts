@@ -10,20 +10,8 @@ example of an olympic country:
     participations: []
 }
 */
-export class OlympicCountry {
-  constructor(
-    public id: number,
-    public country: string,
-    public participations: Participation[]
-  ) {}
- static fromJson(json: any): OlympicCountry {
-    return new OlympicCountry(
-      json.id,
-      json.country,
-      json.participations.map((p: any) => Participation.fromJson(p))
-    );
-  }
-   getTotalMedals(): number {
-    return this.participations.reduce((sum, p) => sum + p.medalsCount, 0);
-  }
+export interface OlympicCountry {
+  id: number;
+  country: string;
+  participations: Participation[];
 }
