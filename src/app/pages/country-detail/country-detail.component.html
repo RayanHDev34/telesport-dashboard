@@ -1,20 +1,9 @@
 <ng-container>
-    <div class="section-title"> Name of the country</div>
+  <div class="section-title">{{ country.country }}</div>
 
-    <div class="stats-row">
-      <app-stat-card
-        title="Number of entries"
-        [value]="10">
-      </app-stat-card>
-
-      <app-stat-card
-        title="Total number medals"
-        [value]="10">
-      </app-stat-card>
-
-      <app-stat-card
-        title="Total  number of athletes"
-        [value]="5">
-      </app-stat-card>
-    </div>
-  </ng-container>
+  <div class="stats-row">
+   <app-stat-card title="Participations" [value]="entries"></app-stat-card>
+    <app-stat-card title="Medals" [value]="medals"></app-stat-card>
+    <app-stat-card title="Athletes" [value]="athletes"></app-stat-card>
+  </div>
+</ng-container>
