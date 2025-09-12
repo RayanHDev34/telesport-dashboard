@@ -16,6 +16,7 @@ export class OlympicStatsService {
 
   getMedalsByCountry(countries: OlympicCountry[] | null | undefined) {
     return (countries ?? []).map(c => ({
+      data: c,
       name: c.country,
       value: c.participations.reduce((acc, p) => acc + p.medalsCount, 0),
     }));

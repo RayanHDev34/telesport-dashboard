@@ -13,7 +13,6 @@ export class OlympicApiService {
   private olympicsSubject =
   new BehaviorSubject<LoadState<OlympicCountry[]>>({ status: 'loading' });
 
-
   readonly olympics$ = this.olympicsSubject.asObservable();
 
   constructor(private http: HttpClient) {}

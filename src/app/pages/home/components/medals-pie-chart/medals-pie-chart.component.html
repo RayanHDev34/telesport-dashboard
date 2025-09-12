@@ -1,3 +1,5 @@
-<div *ngIf="options as opts">
-  <div echarts [options]="opts" class="chart"></div>
+<div echarts
+     class="chart"
+     [options]="options"
+     (chartInit)="onChartInit($event)">
 </div>

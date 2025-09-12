@@ -6,8 +6,8 @@ import { ChartBuilderService } from 'src/app/core/services/chart-builder.service
 
 @Component({
   selector: 'app-medals-pie-chart',
-  standalone: true,                         // 👈 standalone !
-  imports: [CommonModule, NgxEchartsModule], // 👈 pas besoin de module parent
+  standalone: true,
+  imports: [CommonModule, NgxEchartsModule],
   templateUrl: './medals-pie-chart.component.html',
   styleUrls: ['./medals-pie-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,5 +29,10 @@ export class MedalsPieChartComponent implements OnChanges {
         }
       }
     }
+  }
+  onChartInit(ec: any) {
+    ec.on('click', (params: any) => {
+      const data = params.data.data; // ex: "France"
+      console.log('Country clicked:', data);});
   }
 }
