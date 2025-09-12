@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
+import { StatCardComponent } from 'src/app/shared/components/stat-card/stat-card.component';
 
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, StatCardComponent],
   templateUrl: './country-detail.component.html',
   styleUrls: ['./country-detail.component.scss'],
 })

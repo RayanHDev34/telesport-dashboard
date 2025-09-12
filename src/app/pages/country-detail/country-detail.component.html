@@ -1,1 +1,20 @@
-<p>country-detail works!</p>
+<ng-container>
+    <div class="section-title"> Name of the country</div>
+
+    <div class="stats-row">
+      <app-stat-card
+        title="Number of entries"
+        [value]="10">
+      </app-stat-card>
+
+      <app-stat-card
+        title="Total number medals"
+        [value]="10">
+      </app-stat-card>
+
+      <app-stat-card
+        title="Total  number of athletes"
+        [value]="5">
+      </app-stat-card>
+    </div>
+  </ng-container>

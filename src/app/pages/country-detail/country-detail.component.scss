@@ -1,0 +1,31 @@
+.section-title {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 6px 16px;
+  background: #009688;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(14px, 2.2vw, 18px); /* 👈 responsive */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr)); // 3 colonnes
+  gap: 12px;
+  justify-content: center;
+  max-width: 800px; // élargi pour accueillir 3 cards
+  margin: 10px auto 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // tablette → 2 colonnes
+    max-width: 500px;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr; // mobile → 1 colonne
+    max-width: 320px;
+  }
+}
