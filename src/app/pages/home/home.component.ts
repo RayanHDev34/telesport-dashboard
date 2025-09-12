@@ -1,12 +1,11 @@
-import { Observable, of } from 'rxjs';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 
 import { OlympicApiService } from 'src/app/core/services/olympic-api.service';
 import { OlympicStatsService } from 'src/app/core/services/olympic-stats.service';
 
-import { StatCardComponent } from './components/stat-card/stat-card.component';
+import { StatCardComponent } from '../../shared/components/stat-card/stat-card.component';
 import { MedalsPieChartComponent } from './components/medals-pie-chart/medals-pie-chart.component';
 
 @Component({
