@@ -4,6 +4,13 @@ import { Participation } from '../models/Participation';
 @Injectable({ providedIn: 'root' })
 export class ParticipationsService {
 
+  getMedalsOverTime(participations: Participation[]) {
+    return participations.map(p => ({
+      year: p.year,
+      medals: p.medalsCount
+    }));
+  }
+
   /** Retourne le nombre total de participations */
   getTotalEntries(participations: Participation[] | null | undefined): number | null {
     return participations ? participations.length : null;
