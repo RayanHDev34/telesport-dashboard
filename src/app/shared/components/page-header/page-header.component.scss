@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+
+  .back-btn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #007bff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+}

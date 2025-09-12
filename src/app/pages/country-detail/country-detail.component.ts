@@ -8,12 +8,13 @@ import { ParticipationsService } from 'src/app/core/services/participations.serv
 
 import { StatCardComponent } from 'src/app/shared/components/stat-card/stat-card.component';
 import { MedalsLineChartComponent } from 'src/app/shared/components/medals-line-chart/medals-line-chart.component';
+import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
 
 
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [CommonModule, StatCardComponent, MedalsLineChartComponent ],
+  imports: [CommonModule, StatCardComponent, MedalsLineChartComponent, PageHeaderComponent ],
   templateUrl: './country-detail.component.html',
   styleUrls: ['./country-detail.component.scss'],
 })
