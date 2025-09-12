@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { Router } from '@angular/router'; // 👈 import Router
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 import { ChartBuilderService } from 'src/app/core/services/chart-builder.service';
 
@@ -18,7 +19,10 @@ export class MedalsPieChartComponent implements OnChanges {
 
   options: any | null = null;
 
-  constructor(private charts: ChartBuilderService) {}
+constructor(
+    private charts: ChartBuilderService,
+    private router: Router // 👈 inject Router
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('countries' in changes || 'showLegend' in changes) {
@@ -31,8 +35,11 @@ export class MedalsPieChartComponent implements OnChanges {
     }
   }
   onChartInit(ec: any) {
-    ec.on('click', (params: any) => {
-      const data = params.data.data; // ex: "France"
-      console.log('Country clicked:', data);});
-  }
+  ec.on('click', (params: any) => {
+    const country = params.data.data;
+    this.router.navigate(['/countries', country.id], {
+      state: { country }
+    });
+  });
+}
 }
