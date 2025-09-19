@@ -1,10 +1,16 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, of } from 'rxjs';
+import { BehaviorSubject, EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { OlympicCountry } from '../models/Olympic';
 import { LoadState } from '../models/load-state';
 
+export function getErrorMessage(err: HttpErrorResponse): string {
+  if (err.status === 0) return 'Impossible de contacter le serveur';
+  if (err.status === 404) return 'Ressource non trouvée';
+  if (err.status === 500) return 'Erreur interne du serveur';
+  return err.message || 'Erreur inconnue';
+}
 
   @Injectable({ providedIn: 'root' })
 export class OlympicApiService {
@@ -21,7 +27,8 @@ export class OlympicApiService {
    return this.http.get<OlympicCountry[]>(this.olympicUrl).pipe(
     tap(countries => this.olympicsSubject.next({ status: 'success', data: countries })),
     catchError(err => {
-      this.olympicsSubject.next({ status: 'error', error: err });
+      const errorMessage = getErrorMessage(err);
+      this.olympicsSubject.next({ status: 'error', error: errorMessage });
       return EMPTY;
     })
   );
