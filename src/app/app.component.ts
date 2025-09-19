@@ -13,4 +13,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.OlympicApiService.loadInitialData().pipe(take(1)).subscribe();
   }
+
+  // sur on destroy => unsubscribe
 }
