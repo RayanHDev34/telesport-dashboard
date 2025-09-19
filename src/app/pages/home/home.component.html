@@ -4,7 +4,7 @@
   <p *ngIf="state.status === 'loading'">⏳ Chargement…</p>
 
   <!-- Error -->
-  <p *ngIf="state.status === 'error'">❌ Erreur lors du chargement.</p>
+  <p *ngIf="state.status === 'error'">❌ Erreur lors du chargement : {{ state.error }}</p>
 
   <!-- Success -->
   <ng-container *ngIf="state.status === 'success'">

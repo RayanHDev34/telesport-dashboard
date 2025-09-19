@@ -1,9 +1,11 @@
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { Router } from '@angular/router'; // 👈 import Router
 import { OlympicCountry } from 'src/app/core/models/Olympic';
+import { EChartsOption, ECharts, ECElementEvent } from 'echarts';
+import { MedalPieData } from 'src/app/core/models/medal-pie-data.models';
 import { ChartBuilderService } from 'src/app/core/services/chart-builder.service';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-medals-pie-chart',
@@ -17,11 +19,11 @@ export class MedalsPieChartComponent implements OnChanges {
   @Input() countries: OlympicCountry[] = [];
   @Input() showLegend = false;
 
-  options: any | null = null;
+  options: EChartsOption | null = null;
 
 constructor(
-    private charts: ChartBuilderService,
-    private router: Router // 👈 inject Router
+    private router: Router,
+    private charts: ChartBuilderService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -34,12 +36,12 @@ constructor(
       }
     }
   }
-  onChartInit(ec: any) {
-  ec.on('click', (params: any) => {
-    const country = params.data.data;
-    this.router.navigate(['/countries', country.id], {
-      state: { country }
+  onChartInit(ec: ECharts) {
+    ec.on('click', (params: ECElementEvent) => {
+      const { country } = params.data as MedalPieData;
+      this.router.navigate(['/countries', country.id], {
+        state: { country },
+      });
     });
-  });
 }
 }

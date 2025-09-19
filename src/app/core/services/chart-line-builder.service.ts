@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { OlympicCountry } from '../models/Olympic';
+import { EChartsOption } from 'echarts';
+import type { CallbackDataParams } from 'echarts/types/dist/shared';
+
 import { ParticipationsService } from './participations.service';
 
 @Injectable({ providedIn: 'root' })
 export class ChartLineBuilderService {
   constructor(private participationsService: ParticipationsService) {}
 
-  buildMedalsLineOptions(country: OlympicCountry) {
-    // On récupère [{ year, medals }]
+  buildMedalsLineOptions(country: OlympicCountry): EChartsOption {
     const data = this.participationsService.getMedalsOverTime(country.participations);
 
-    // Séparation en deux tableaux pour ECharts
     const years = data.map(d => d.year);
     const medals = data.map(d => d.medals);
 
     return {
       tooltip: {
         trigger: 'axis',
-        formatter: (params: any) => {
-          const p = params[0];
-          return `${p.axisValue}<br/>${p.data} médailles`;
+         formatter: (params: CallbackDataParams | CallbackDataParams[]): string => {
+          const arr = Array.isArray(params) ? params : [params];
+          const p = arr[0];
+          return `${p.name}<br/>${p.data} médailles`;
         }
       },
       xAxis: {
