@@ -7,14 +7,18 @@ It allows fans to explore and visualize statistics from past Olympic Games in a 
 
 # Features
 
-Medals per country (Pie chart)
-Displays the distribution of medals by country.
-Clicking on a slice of the pie opens the detailed page of the selected country.
-Country detail (Line chart)
-Shows the evolution of medals won by a specific country across different Olympic editions.
-Interactive tooltips let the user explore medal counts year by year.
-Responsive design
-Works on both desktop and mobile devices.
+- **Medals per country (Pie chart)**
+
+  - Displays the distribution of medals by country.
+  - Clicking on a slice of the pie opens the detailed page of the selected country.
+
+- **Country detail (Line chart)**
+
+  - Shows the evolution of medals won by a specific country across different Olympic editions.
+  - Interactive tooltips let the user explore medal counts year by year.
+
+- **Responsive design**
+  - Works on both desktop and mobile devices.
 
 RxJS observables manage data streams and states (loading, success, error).
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
