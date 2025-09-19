@@ -1,11 +1,11 @@
 # OlympicGamesStarter
 
-# About the application
+## About the application
 
 The Olympic Dashboard is a web application built for TéléSport, designed to provide users with an interactive view of Olympic Games data.
 It allows fans to explore and visualize statistics from past Olympic Games in a simple and engaging way.
 
-# Features
+## Features
 
 - **Medals per country (Pie chart)**
 
@@ -20,10 +20,11 @@ It allows fans to explore and visualize statistics from past Olympic Games in a 
 - **Responsive design**
   - Works on both desktop and mobile devices.
 
-RxJS observables manage data streams and states (loading, success, error).
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Technical details
 
-Don't forget to install your node_modules before starting (`npm install`).
+- RxJS observables manage data streams and states (`loading`, `success`, `error`).
+- This project was generated with Angular CLI version 18.0.3.
+- Don't forget to install your `node_modules` before starting (`npm install`).
 
 ## Development server
 
