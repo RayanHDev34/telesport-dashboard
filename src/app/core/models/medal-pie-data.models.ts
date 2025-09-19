@@ -1,4 +1,4 @@
-import { OlympicCountry } from "./Olympic";
+import { OlympicCountry } from "./olympic.models";
 
 export interface MedalPieData {
     name: string;

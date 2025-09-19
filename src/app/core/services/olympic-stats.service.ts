@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { OlympicCountry } from '../models/Olympic';
+import { OlympicCountry } from '../models/olympic.models';
 
 @Injectable({ providedIn: 'root' })
 export class OlympicStatsService {

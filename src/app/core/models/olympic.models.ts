@@ -1,6 +1,6 @@
 // TODO: create here a typescript interface for an olympic country
 
-import { Participation } from "./Participation";
+import { Participation } from "./participation.models";
 
 /*
 example of an olympic country:

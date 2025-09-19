@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { OlympicCountry } from 'src/app/core/models/Olympic';
+import { OlympicCountry } from 'src/app/core/models/olympic.models';
 
 import { ParticipationsService } from 'src/app/core/services/participations.service';
 

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { OlympicCountry } from 'src/app/core/models/Olympic';
+import { OlympicCountry } from 'src/app/core/models/olympic.models';
 import { EChartsOption, ECharts, ECElementEvent } from 'echarts';
 import { MedalPieData } from 'src/app/core/models/medal-pie-data.models';
 import { ChartBuilderService } from 'src/app/core/services/chart-builder.service';

@@ -1,6 +1,6 @@
 import { EChartsOption } from 'echarts';
 import { Injectable } from '@angular/core';
-import { OlympicCountry } from '../models/Olympic';
+import { OlympicCountry } from '../models/olympic.models';
 import { OlympicStatsService } from './olympic-stats.service';
 import { CallbackDataParams } from 'echarts/types/dist/shared';
 

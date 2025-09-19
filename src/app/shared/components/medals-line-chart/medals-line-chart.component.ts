@@ -2,7 +2,7 @@ import { EChartsOption } from 'echarts';
 import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { Component, Input, OnChanges } from '@angular/core';
-import { OlympicCountry } from 'src/app/core/models/Olympic';
+import { OlympicCountry } from 'src/app/core/models/olympic.models';
 import { ChartLineBuilderService } from 'src/app/core/services/chart-line-builder.service';
 
 @Component({

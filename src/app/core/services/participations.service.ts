@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Participation } from '../models/Participation';
+import { Participation } from '../models/participation.models';
 
 @Injectable({ providedIn: 'root' })
 export class ParticipationsService {
