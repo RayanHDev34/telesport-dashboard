@@ -4,9 +4,9 @@
   <div class="section-title">{{ country.country }}</div>
 
   <div class="stats-row">
-   <app-stat-card title="Participations" [value]="entries"></app-stat-card>
-    <app-stat-card title="Medals" [value]="medals"></app-stat-card>
-    <app-stat-card title="Athletes" [value]="athletes"></app-stat-card>
+   <app-stat-card title="Number of entries" [value]="entries"></app-stat-card>
+    <app-stat-card title="Total number medals" [value]="medals"></app-stat-card>
+    <app-stat-card title="Total number of athletes" [value]="athletes"></app-stat-card>
   </div>
   <app-medals-line-chart [country]="country"></app-medals-line-chart>
 </ng-container>
