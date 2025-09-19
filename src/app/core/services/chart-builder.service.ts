@@ -1,8 +1,8 @@
-// src/app/core/services/chart-builder.service.ts
 import { EChartsOption } from 'echarts';
 import { Injectable } from '@angular/core';
 import { OlympicCountry } from '../models/Olympic';
 import { OlympicStatsService } from './olympic-stats.service';
+import { CallbackDataParams } from 'echarts/types/dist/shared';
 
 @Injectable({ providedIn: 'root' })
 export class ChartBuilderService {
@@ -10,12 +10,15 @@ export class ChartBuilderService {
 
   /** Construit les options ECharts pour afficher un donut avec labels dehors */
   buildMedalsPieOptions(countries: OlympicCountry[]): EChartsOption {
-    const data = this.stats.getMedalsByCountry(countries);
-
-    return {
-      tooltip: {
+  const data = this.stats.getMedalsByCountry(countries);
+  
+  return {
+    tooltip: {
       trigger: 'item',
-      formatter: (p: any) => `${p.name}<br/>${p.value} medals`,
+      formatter: (params: CallbackDataParams | CallbackDataParams[]): string=> {
+        const p = Array.isArray(params) ? params[0] : params;
+        return `${p.name}<br/>${p.value} medals`;
+      },
     },
     series: [
       {
