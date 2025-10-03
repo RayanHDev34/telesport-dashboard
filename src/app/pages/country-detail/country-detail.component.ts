@@ -7,14 +7,14 @@ import { OlympicCountry } from 'src/app/core/models/olympic.models';
 import { ParticipationsService } from 'src/app/core/services/participations.service';
 
 import { StatCardComponent } from 'src/app/shared/components/stat-card/stat-card.component';
-import { MedalsLineChartComponent } from 'src/app/shared/components/medals-line-chart/medals-line-chart.component';
-import { PageHeaderComponent } from 'src/app/shared/components/page-header/page-header.component';
+import { MedalsLineChartComponent } from 'src/app/pages/country-detail/medals-line-chart/medals-line-chart.component';
+import { BackHeaderComponent } from 'src/app/shared/components/back-header/back-header.component';
 
 
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [CommonModule, StatCardComponent, MedalsLineChartComponent, PageHeaderComponent ],
+  imports: [CommonModule, StatCardComponent, MedalsLineChartComponent, BackHeaderComponent ],
   templateUrl: './country-detail.component.html',
   styleUrls: ['./country-detail.component.scss'],
 })

@@ -6,10 +6,10 @@ import { CommonModule, Location } from '@angular/common';
   selector: 'app-page-header',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './page-header.component.html',
-  styleUrls: ['./page-header.component.scss'],
+  templateUrl: './back-header.component.html',
+  styleUrls: ['./back-header.component.scss'],
 })
-export class PageHeaderComponent {
+export class BackHeaderComponent {
 
   constructor(private location: Location) {}
 

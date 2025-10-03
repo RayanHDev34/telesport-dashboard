@@ -6,7 +6,7 @@ import { OlympicApiService } from 'src/app/core/services/olympic-api.service';
 import { OlympicStatsService } from 'src/app/core/services/olympic-stats.service';
 
 import { StatCardComponent } from '../../shared/components/stat-card/stat-card.component';
-import { MedalsPieChartComponent } from '../../shared/components/medals-pie-chart/medals-pie-chart.component';
+import { MedalsPieChartComponent } from './medals-pie-chart/medals-pie-chart.component';
 
 @Component({
   selector: 'app-home',
