@@ -7,13 +7,12 @@ import { AppComponent } from './app.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
-  declarations: [AppComponent], // ❌ pas de Home/NotFound s'ils sont standalone
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
 
-    // ✅ fournit NGX_ECHARTS_CONFIG globalement
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),

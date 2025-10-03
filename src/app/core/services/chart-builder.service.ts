@@ -7,11 +7,23 @@ import { CallbackDataParams } from 'echarts/types/dist/shared';
 @Injectable({ providedIn: 'root' })
 export class ChartBuilderService {
   constructor(private stats: OlympicStatsService) {}
-
-  /** Construit les options ECharts pour afficher un donut avec labels dehors */
+private getColorForCountry(id: number): string {
+  const colors: Record<number, string> = {
+    1: '#a4005dda',   
+    2: '#2d4fdbff',      
+    5: '#2e83c8ff',    
+    4: '#8f1a1ab4',  
+    3: '#1b21c1b4',  
+  };
+  return colors[id] || '#cccccc'; // couleur par défaut
+}
   buildMedalsPieOptions(countries: OlympicCountry[]): EChartsOption {
-  const data = this.stats.getMedalsByCountry(countries);
-  
+  const data = this.stats.getMedalsByCountry(countries).map(item => ({
+  ...item,
+  itemStyle: {
+    color: this.getColorForCountry(item.country.id)  // 👈 couleur personnalisée
+  }
+}));
   return {
     tooltip: {
       trigger: 'item',

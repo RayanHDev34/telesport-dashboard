@@ -16,8 +16,7 @@ import { MedalsPieChartComponent } from '../../shared/components/medals-pie-char
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent  {
-olympics$ = this.olympicApiService.getOlympics();
-
+  olympics$ = this.olympicApiService.getOlympics();
   constructor(
     private olympicApiService: OlympicApiService,
     private statsService: OlympicStatsService

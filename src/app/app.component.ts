@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   constructor(private OlympicApiService: OlympicApiService) {}
 
   ngOnInit(): void {
+    // ici on s'inscrit une seule fois pour charger les données initiales
     this.OlympicApiService.loadInitialData().pipe(take(1)).subscribe();
   }
 
-  // sur on destroy => unsubscribe
 }
