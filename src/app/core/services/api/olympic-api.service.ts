@@ -2,8 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { OlympicCountry } from '../models/olympic.models';
-import { LoadState } from '../models/load-state.models';
+import { OlympicCountry } from '../../models/olympic.models';
+import { LoadState } from '../../models/load-state.models';
 
 export function getErrorMessage(err: HttpErrorResponse): string {
   if (err.status === 0) return 'Impossible de contacter le serveur';

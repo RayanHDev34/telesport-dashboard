@@ -4,7 +4,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { OlympicCountry } from 'src/app/core/models/olympic.models';
 import { EChartsOption, ECharts, ECElementEvent } from 'echarts';
 import { MedalPieData } from 'src/app/core/models/medal-pie-data.models';
-import { ChartBuilderService } from 'src/app/core/services/chart-builder.service';
+import { PiePieChartBuilderService } from 'src/app/core/services/charts/pie-chart-builder.service';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -23,7 +23,7 @@ export class MedalsPieChartComponent implements OnChanges {
 
 constructor(
     private router: Router,
-    private charts: ChartBuilderService
+    private charts: PiePieChartBuilderService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {

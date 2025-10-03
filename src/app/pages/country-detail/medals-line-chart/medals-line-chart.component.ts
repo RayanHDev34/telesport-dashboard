@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { Component, Input, OnChanges } from '@angular/core';
 import { OlympicCountry } from 'src/app/core/models/olympic.models';
-import { ChartLineBuilderService } from 'src/app/core/services/chart-line-builder.service';
+import { LineChartBuilderService } from 'src/app/core/services/charts/line-chart-builder.service';
 
 @Component({
   selector: 'app-medals-line-chart',
@@ -18,7 +18,7 @@ export class MedalsLineChartComponent implements OnChanges {
   options: EChartsOption | null = null;
 
 
-  constructor(private chartLineBuilder: ChartLineBuilderService) {}
+  constructor(private chartLineBuilder: LineChartBuilderService) {}
 
   ngOnChanges(): void {
     if (this.country) {

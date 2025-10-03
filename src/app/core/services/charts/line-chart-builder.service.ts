@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
-import { OlympicCountry } from '../models/olympic.models';
 import { EChartsOption } from 'echarts';
+import { Injectable } from '@angular/core';
+import { OlympicCountry } from '../../models/olympic.models';
 import type { CallbackDataParams } from 'echarts/types/dist/shared';
+import { ParticipationsStatsService } from '../stats/participations-stats.service';
 
-import { ParticipationsService } from './participations.service';
 
 @Injectable({ providedIn: 'root' })
-export class ChartLineBuilderService {
-  constructor(private participationsService: ParticipationsService) {}
+export class LineChartBuilderService {
+  constructor(private participationsStatsService: ParticipationsStatsService) {}
 
   buildMedalsLineOptions(country: OlympicCountry): EChartsOption {
-    const data = this.participationsService.getMedalsOverTime(country.participations);
+    const data = this.participationsStatsService.getMedalsOverTime(country.participations);
 
     const years = data.map(d => d.year);
     const medals = data.map(d => d.medals);

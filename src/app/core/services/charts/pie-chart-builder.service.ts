@@ -1,11 +1,11 @@
 import { EChartsOption } from 'echarts';
 import { Injectable } from '@angular/core';
-import { OlympicCountry } from '../models/olympic.models';
-import { OlympicStatsService } from './olympic-stats.service';
 import { CallbackDataParams } from 'echarts/types/dist/shared';
+import { OlympicCountry } from '../../models/olympic.models';
+import { OlympicStatsService } from '../stats/olympic-stats.service';
 
 @Injectable({ providedIn: 'root' })
-export class ChartBuilderService {
+export class PiePieChartBuilderService {
   constructor(private stats: OlympicStatsService) {}
 private getColorForCountry(id: number): string {
   const colors: Record<number, string> = {

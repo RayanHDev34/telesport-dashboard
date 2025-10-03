@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ChartLineBuilderService } from './chart-line-builder.service';
+import { LineChartBuilderService } from './line-chart-builder.service';
 
 describe('ChartLineBuilderService', () => {
-  let service: ChartLineBuilderService;
+  let service: LineChartBuilderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ChartLineBuilderService);
+    service = TestBed.inject(LineChartBuilderService);
   });
 
   it('should be created', () => {

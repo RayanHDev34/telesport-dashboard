@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { OlympicCountry } from 'src/app/core/models/olympic.models';
 
-import { ParticipationsService } from 'src/app/core/services/participations.service';
+import { ParticipationsStatsService } from 'src/app/core/services/stats/participations-stats.service';
 
 import { StatCardComponent } from 'src/app/shared/components/stat-card/stat-card.component';
 import { MedalsLineChartComponent } from 'src/app/pages/country-detail/medals-line-chart/medals-line-chart.component';
@@ -23,8 +23,8 @@ export class CountryDetailComponent {
   medals!: number;
   entries!: number;
   athletes!: number;
-  
-  constructor(private router: Router, private participations: ParticipationsService) {
+
+  constructor(private router: Router, private participations: ParticipationsStatsService) {
     const nav = this.router.getCurrentNavigation();
     this.country = nav?.extras.state?.['country'] ?? null;
   }

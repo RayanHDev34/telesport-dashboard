@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Participation } from '../models/participation.models';
+import { Participation } from '../../models/participation.models';
 
 @Injectable({ providedIn: 'root' })
-export class ParticipationsService {
+export class ParticipationsStatsService  {
 
   getMedalsOverTime(participations: Participation[]) {
     return participations.map(p => ({
