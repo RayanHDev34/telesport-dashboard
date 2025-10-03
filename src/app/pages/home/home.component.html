@@ -1,12 +1,9 @@
 <ng-container *ngIf="olympics$ | async as state">
 
-  <!-- Loading -->
   <p *ngIf="state.status === 'loading'">⏳ Chargement…</p>
 
-  <!-- Error -->
   <p *ngIf="state.status === 'error'">❌ Erreur lors du chargement : {{ state.error }}</p>
 
-  <!-- Success -->
   <ng-container *ngIf="state.status === 'success'">
     <div class="section-title">Medals per Country</div>
 

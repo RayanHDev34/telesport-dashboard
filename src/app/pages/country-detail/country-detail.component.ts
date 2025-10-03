@@ -25,7 +25,6 @@ export class CountryDetailComponent {
   athletes!: number;
   
   constructor(private router: Router, private participations: ParticipationsService) {
-    // 👉 récupérer l'objet envoyé dans router.navigate(..., { state: { country } })
     const nav = this.router.getCurrentNavigation();
     this.country = nav?.extras.state?.['country'] ?? null;
   }
