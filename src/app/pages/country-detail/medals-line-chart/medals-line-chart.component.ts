@@ -14,12 +14,8 @@ import { LineChartBuilderService } from 'src/app/core/services/charts/line-chart
 })
 export class MedalsLineChartComponent implements OnChanges {
   @Input() country!: OlympicCountry;
-
   options: EChartsOption | null = null;
-
-
   constructor(private chartLineBuilder: LineChartBuilderService) {}
-
   ngOnChanges(): void {
     if (this.country) {
       this.options = this.chartLineBuilder.buildMedalsLineOptions(this.country);
